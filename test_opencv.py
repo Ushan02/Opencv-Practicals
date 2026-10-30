@@ -20,7 +20,7 @@ cv.destroyAllWindows()
 source=cv.VideoCapture(0) #for web cam'''
 
 
-#this code use for open and play video file, it reads trhe video frame by frame and display each frame in window.
+#this code use for open and play video file, it reads the video frame by frame and display each frame in window.
 #the video stop automatically whhen it  end or user press ESC
 
 source=cv.VideoCapture('dog_animation_20s.mp4')
