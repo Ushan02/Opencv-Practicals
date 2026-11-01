@@ -1,5 +1,7 @@
 import cv2
 import cv2 as cv
+import numpy as np
+from matplotlib import pyplot as plt
 
 '''img = cv.imread('images/flower.jpg')
 
@@ -45,6 +47,31 @@ cv.imshow("flower2",img2)
 cv.imshow("flower3",img3)
 cv.waitKey(0)
 cv.destroyAllWindows()'''
+
+
+#--------------------------------------------------------------#
+#Image Thresholding
+
+img=cv2.imread('images/flower.jpg',0)
+#Binary inverse
+ret,thresh=cv2.threshold(img,80,255,cv2.THRESH_BINARY_INV)
+cv.imshow("flower1",thresh)
+#Binary
+ret,thresh=cv2.threshold(img,80,255,cv2.THRESH_BINARY)
+cv.imshow("flower2",thresh)
+
+#To Zero (Keeps pixel values above 200 unchanged; changes the rest to zero.)
+ret,thresh=cv2.threshold(img,80,255,cv2.THRESH_TOZERO)
+cv.imshow("flower3",thresh)
+
+#Truncate (Limits values greater than 200 to 200.)
+ret,thresh=cv2.threshold(img,80,255,cv2.THRESH_TRUNC)
+cv.imshow("flower4",thresh)
+
+cv.waitKey(0)
+cv2.destroyAllWindows()
+
+#---------------------------------------------------------------#
 
 
 
