@@ -46,7 +46,7 @@ cv.imshow("flower1",img1)
 cv.imshow("flower2",img2)
 cv.imshow("flower3",img3)
 cv.waitKey(0)
-cv.destroyAllWindows()'''
+cv.destroyAllWindows()
 
 
 #--------------------------------------------------------------#
@@ -69,9 +69,31 @@ ret,thresh=cv2.threshold(img,80,255,cv2.THRESH_TRUNC)
 cv.imshow("flower4",thresh)
 
 cv.waitKey(0)
-cv2.destroyAllWindows()
+cv2.destroyAllWindows()'''
 
 #---------------------------------------------------------------#
 
+#color segmentation
 
 
+frame=cv2.imread('images/colors3.jpg')
+hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+lower_color = np.array((96,227,130))
+upper_color = np.array((140,255,255))
+
+mask=cv2.inRange(hsv, lower_color, upper_color)
+
+res = cv2.bitwise_and(frame,frame, mask= mask)
+
+cv2.imshow('frame',frame)
+cv2.imshow('HSV',hsv)
+cv2.imshow('mask',mask)
+cv2.imshow('res',res)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+#This code reads an image and converts it from BGR to HSV colour space. It defines the lower and upper HSV colour ranges using NumPy arrays and detects the selected colour using inRange. Then, using bitwise_and  extracts the detected colour from the original image.
+
+#-----------------------------------------------------------#
