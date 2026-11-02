@@ -69,7 +69,7 @@ ret,thresh=cv2.threshold(img,80,255,cv2.THRESH_TRUNC)
 cv.imshow("flower4",thresh)
 
 cv.waitKey(0)
-cv2.destroyAllWindows()'''
+cv2.destroyAllWindows()
 
 #---------------------------------------------------------------#
 
@@ -97,3 +97,5 @@ cv2.destroyAllWindows()
 #This code reads an image and converts it from BGR to HSV colour space. It defines the lower and upper HSV colour ranges using NumPy arrays and detects the selected colour using inRange. Then, using bitwise_and  extracts the detected colour from the original image.
 
 #-----------------------------------------------------------#
+'''
+
