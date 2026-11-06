@@ -112,6 +112,9 @@ for cnt in contours:
 
     if(area>1000 and area<5000):
         cv2.drawContours(img, [cnt], -1, (0,255,0), 2)
+        x, y, w, h = cv2.boundingRect(cnt)
+        cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
+
 
 cv2.imshow('thresh',thresh)
 cv2.imshow('img',img)
