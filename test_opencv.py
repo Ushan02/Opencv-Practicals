@@ -98,4 +98,25 @@ cv2.destroyAllWindows()
 
 #-----------------------------------------------------------#
 '''
+#find contours
+
+img =cv2.imread('images/gray_image.png')
+imggray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+ret,thresh=cv2.threshold(imggray,80,255,cv2.THRESH_BINARY)
+contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+
+for cnt in contours:
+    area=cv2.contourArea(cnt)
+    print(area)
+
+    if(area>1000 and area<5000):
+        cv2.drawContours(img, [cnt], -1, (0,255,0), 2)
+
+cv2.imshow('thresh',thresh)
+cv2.imshow('img',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+#This code reads a image, converts it into grayscale, and applies thresholding to create a binary image. It then detects all object boundaries (contours) using `cv2.findContours()` and prints the total number of contours and the number of points in the first contour. Finally, it draws all detected contours in green on the original image and displays both the binary image and the image with highlighted contours.
 
